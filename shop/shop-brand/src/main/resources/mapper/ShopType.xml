@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.fh.dao.ShopBranMappr" >
+
+        <select id="queryBrandByType" resultType="com.fh.model.ShopBrand" >
+            select  pp.bid ,pp.id,pp.bname name,pp.url ,pp.wangzhi, pp.phone , sb.tid
+          from shopbrand pp LEFT JOIN shop_type_brand sb on pp.bid = sb.bid
+        </select>
+
+    <select id="getBrandIdCar" parameterType="java.lang.Integer" resultType="com.fh.model.ShopBrand">
+
+      select id ,name,mainimg imgPath,price from t_shop_product where id= #{id}
+
+    </select>
+
+</mapper>
